@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>addEventListner2</title>
+    <style>
+        div {
+            width: 250px;
+            height: 250px;
+            line-height: 250px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="eventZone"></div>
+    <h2>mouse position: <span id="pos"></span></h2>
+    <h2>mouse position: <span id="pos1"></span></h2>
+</body>
+
+<script>
+    var mousezone = document.getElementById("eventZone");
+    mousezone.addEventListener("click", click1);
+    mousezone.addEventListener("dblclick", dblclick1);
+mousezone.addEventListener("mouseenter", mouseover);      // mouseenter - 마우스가 영역 안으로 들어왔을때
+    mousezone.addEventListener("mouseout", mouseout);        // mouseout - 마우스가 영역 밖으로 나갔을때
+
+    mousezone.addEventListener("contextmenu", contextmenu1); // contextmenu - 우클릭 
+
+    function contextmenu1() {
+        alert("우클릭 하지마 손가락 날라가붕께");
+    }
+
+
+    function mouseover() {
+        mousezone.innerHTML = "마우스로 만지네"
+        mousezone.style.backgroundColor = "blue";
+    }
+    function mouseout() {
+        mousezone.innerHTML = "더 만져줘"
+        mousezone.style.backgroundColor = "lightgray";
+    }
+    function click1() {
+        mousezone.innerHTML = "click!!"
+        mousezone.style.backgroundColor = "orange";
+    }
+
+    function dblclick1() {
+        mousezone.innerHTML = "double click!!"
+        mousezone.style.backgroundColor = "red";
+    }
+
+    document.addEventListener("mousemove", move1);
+
+    function move1(move) { // 파라미터안에 window.event가 내장 되어있음.
+        console.log(move)
+        document.getElementById("pos").innerHTML = 
+        "브라우저(client) X : " + move.clientX + " / Y " + move.clientY;
+        document.getElementById("pos1").innerHTML = 
+        "모니터(screen) X : " + move.screenX + " / Y " + move.screenY;
+    }
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

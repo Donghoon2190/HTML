@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window</title>
+</head>
+
+<body>
+    <button>창열기</button>
+    <button>창닫기</button>
+    <button>창크기 변경</button>
+    <button>100x100추가</button>
+</body>
+
+<script>
+    var btn = document.getElementsByTagName("button");
+    // btn[0] : 창열기
+    // btn[1] : 창닫기
+    // btn[2] : 창크기 변경
+
+    var mywindow;
+
+    btn[0].addEventListener("click",winOpen)
+    btn[1].addEventListener("click",winClose)
+    btn[2].addEventListener("click",winRsize)
+    btn[3].addEventListener("click",winplussize)
+
+    function winOpen(){
+        mywindow = window.open("(6)screen.html","","width=700 ,height=500, top=100	], left=440");
+                                       // 주소 제목        크기or스타일      옵션 
+    }
+    function winClose(){
+        mywindow.close();
+        // 내가 winOpen()에서 만들어 준 창 mywindow를
+        // close()를 이용하여 닫아줌.
+    }    
+    function winplussize(){
+        mywindow.resizeBy(100,100);
+        // resizeBy - 크기를 100x100만큼 증가
+    }
+    function winRsize(){
+        mywindow.resizeTo(1000,1000);
+        // resizeTo - 크기를 500x500으로 고정
+        
+      
+
+        mywindow.focus();
+        //새로운 창이 맨위로 올라온다.
+    }
+
+</script>
+
+</html>

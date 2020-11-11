@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Timing</title>
+</head>
+
+<body>
+    <button onclick="interval1()">시작</button>    
+    <button onclick="stop1()">정지</button>    
+    <button onclick="setTime1()">3초뒤</button>    
+    <h1 id="txt">0</h1>
+</body>
+
+<script>
+    var myTime;
+    var x = 0;
+
+    function interval1(){
+        // setInterval(function(){},milisecond)
+        // 1000 milisecond = 1 second(1초)
+        myTime = setInterval(function(){
+            x++;
+            txt.innerHTML = x;
+        },1000)
+    }
+
+    function stop1(){
+        clearInterval(myTime);
+        txt.innerHTML = x;
+        x = 0;
+       
+    }
+
+    function setTime1(){
+        interval1();
+        // setTime(function(){}, milisecond)
+        setInterval(function(){
+            alert("확인을 누르시면 페이지가 이동합니다.")
+            location.href="http://www.naver.com";
+        },3000)
+    }
+</script>
+
+</html>
