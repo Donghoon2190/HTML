@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Object2Back</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body onload="first()">
+    <fieldset >
+        <legend><span id="d">D</span><span id="h">H</span> <span id="b">B</span><span id="a">a</span><span id="n">n</span><span id="k">k</span></legend>
+        <span id="money1"></span> <br/>
+        금액 <input type="text" id="user" style="font-size: 27px;">    <br/>
+       
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" value="입금" onclick="plus()" style="font-size: 25px;"> 
+        <input type="button" value="출금" onclick="minus()" style="font-size: 25px;">
+        <br/><br/>   
+
+      <div>
+          <div style="border: black 3px solid; float: left;" >계좌의 잔액</div> 
+          <div style="text-align: right;border: black 3px solid; "><span id="money"></span> </div>
+          <div style="border: black 3px solid; float: left; border-top:none;"> 변동된 금액</div>
+          <div style="text-align: right; border: black 3px solid; border-top:none;"> <span id="result"></span> </div>
+        </div>
+   
+           
+    </fieldset>
+</body>
+
+<script>
+    var Account = {};
+
+    Account.deposit = function(amount){ //예금
+        this.balance += amount;
+    }
+    Account.withdraw = function(amount){
+        if (this.balance >=amount) {
+            this.balance -= amount;    
+        }else{alert("돈넣고 와라;");}
+    }
+    Account.balance = 100000;
+
+    function first(){Account.first();}
+
+    Account.first = function(){
+        document.getElementById("money1").innerHTML = "초기자금 : "+ this.balance + "원";
+        document.getElementById("money").innerHTML = " "+this.balance + "원";
+        document.getElementById("result").innerHTML = " &nbsp;";}
+    
+    function plus() { // 입금
+        if(document.getElementById("user").value==""){
+            alert("금액없음");
+        }else{
+        var money = parseInt(document.getElementById("user").value);
+        Account.deposit(money);
+        Account.plus();
+        Account.toString();
+        }
+    }
+    function minus() { // 출금
+        var money = parseInt(document.getElementById("user").value);
+        Account.withdraw(money);
+        Account.minus();
+        Account.toString();}
+
+    Account.toString = function(){ // 조회
+        document.getElementById("money").innerHTML =  this.balance+"원";}
+
+    Account.plus = function(){ // 입금
+        document.getElementById("result").innerHTML = "+" + document.getElementById("user").value+"원";}
+
+    Account.minus = function(){ // 출금
+        document.getElementById("result").innerHTML = "-" + document.getElementById("user").value+"원";}
+    
+</script>
+
+</html>

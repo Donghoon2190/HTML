@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Object2Back</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    //Object생성
+    var Account = {};
+
+    // 필드
+    // 출력할때 처럼 쓰고 대입해 줄 수도있음
+    Account.balance = 0;
+
+    // 메소드
+    //function method(param){}
+    Account.deposit = function(amount){ //예금
+        this.balance += amount;
+        // Account.deposit(10000)
+        // 10000원이 계좌에 추가됨.
+    }
+    Account.withdraw = function(amount){
+        if (this.balance >=amount) {
+            this.balance -= amount;    
+        }else{//잔액이 부족할 시 뜨는 문구
+            console.log("돈넣고 와라;");
+        alert("잔액이 부족합니다.") // alert 화면에 내용이 뜨게함
+    }
+    }
+
+    Account.toString = function(){
+        return "balance : " + this.balance;
+    }
+    
+    // Object 사용
+    //계좌 잔액 50000원
+    Account.balance = 50000;
+    //10000원 입금
+    Account.deposit(10000);
+    //10만원 출금
+    Account.withdraw(100000);
+    //3만원 출금
+    Account.withdraw(30000);
+    //잔액 확인
+    console.log(Account.toString()); //10만원을 출금하지 못했기 때문에 3만원.
+
+</script>
+
+</html>

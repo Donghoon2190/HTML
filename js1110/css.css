@@ -1,0 +1,27 @@
+        #d{color: red;  font-size:40px;}
+        #h{color: orange; font-size:40px;}
+        #b{color: yellow;font-size:40px;}
+        #a{color: greenyellow; font-size:40px;}
+        #n{color: blue; font-size:40px;}
+        #k{color: navy; font-size:40px;}
+
+        body{
+            background-color: skyblue
+        }
+        legend{
+            text-align: center;
+        }
+        fieldset{
+            margin-top : 70px;
+            font-size: 30px;
+            border: none;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+       div{
+             margin: auto ;
+            border: black 3px;
+            max-width: 600px;
+        }
+       
