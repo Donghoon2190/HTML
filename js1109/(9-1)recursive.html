@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>재귀호출</title>
+</head>
+
+<body>
+    <h2>재귀호출 : 함수안에서 자신을 다시 호출하는 것</h2>
+    <!-- 4 x 3 x 2 x 1 = 4! -->
+    <!-- factorial -->
+    <fieldset>
+        <legend>factorial</legend>
+        <input type="text" id="fact">
+        <input type="button" value="factorial!" onclick="factmethod()">
+        <h2>입력한 값 : <span id="result1"></span></h2>
+        <h2>결과 값 : <span id="result2"></span><span id="result3"></span></h2>
+        <img  id="img2" width="300px" height="70px" style="border: none;">
+    </fieldset>
+</body>
+
+<script>
+
+ var result = 1;
+     var nums = "";
+
+    function factorial(num) {
+     if (num == 1) {
+         nums = nums+ num + " = ";
+         return 1;
+     }nums=nums+num+" x ";
+     return num * factorial(num-1);
+ }  
+     function factmethod() {
+         var num1 = document.getElementById("fact");
+         var num = parseInt(num1.value);
+
+         document.getElementById("result1").innerHTML = num;
+          var iu =factorial(num);
+         document.getElementById("result2").innerHTML =  nums + iu;
+         nums = "";
+         iu = "";
+    }  
+
+</script>
+
+</html>
+
+
+<!-- var result = 1;
+
+    function factorial(num) {
+    if (num == 1) {
+        document.write( num + " = ")
+        return 1;
+    } document.write( num+" x "+"  ");
+    return num * factorial(num-1);
+}  
+
+    function factmethod() {
+        var num1 = document.getElementById("fact");
+        var num = parseInt(num1.value);
+
+        
+        document.write(factorial(num));
+    } -->
+
+    <!-- var result = 1;
+
+function factorial(num) {
+    if (num == 1) {
+        
+        return 1;
+    } 
+    return num * factorial(num - 1);
+}
+
+function factmethod() {
+    var num1 = document.getElementById("fact");
+    var num = parseInt(num1.value);
+    document.getElementById("result1").innerHTML =num ;
+    document.getElementById("result2").innerHTML = dfactorial(num) ;
+    -->

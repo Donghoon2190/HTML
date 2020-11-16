@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>지역변수, 전역변수</title>
+</head>
+
+<body onload="localfocus2()">
+    <!-- onload - 실행할때
+        함수를 실행하겠다. -->
+</body>
+
+<script>
+    var global = 100;
+    // 전역변수 : 어디서나 사용 가능
+
+    function localfocus1() {
+        var local = 200;
+        //지역변수 : 함수 내에서만 사용 가능
+
+        //(1)먼저 실행
+        console.log("global : " + global);
+        console.log("local : " + local);
+    }
+    //(2) 1번 실행 후 실행
+    console.log("global : " + global);
+    console.log("local : " + local); // 지역변수라서 변수가 있는 함수 밖에서는 인식하지못함.
+
+    function localfocus2() {
+        console.log("global : " + global);
+        console.log("local : " + local);
+    }
+
+    
+</script>
+
+</html>

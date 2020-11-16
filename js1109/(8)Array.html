@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Array(배열)</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>성적계산</legend>
+
+        국어 : <input type="text" id="int1"><br />
+        수학 : <input type="text" id="int2"><br />
+        사회 : <input type="text" id="int3"><br />
+        과학 : <input type="text" id="int4"><br />
+        영어 : <input type="text" id="int5"><br />
+        <h4>위 학생의 점수 : <span id="st1"></span></h4>
+        <input type="button" value="입력" onclick="input()">
+        <input type="button" value="출력" onclick="output()">
+        <input type="button" value="총점" onclick="sum()">
+        <h3>평균 : <span id="total"></span> 점입니다.</h3>
+
+    </fieldset>
+</body>
+<script>
+    //배열선언
+    var arr = [4];
+    var idx = 0;
+    var all = [];
+
+    function input() {
+        var input = [];
+        input[0] = parseInt(document.getElementById("int1").value);
+        input[1] = parseInt(document.getElementById("int2").value);
+        input[2] = parseInt(document.getElementById("int3").value);
+        input[3] = parseInt(document.getElementById("int4").value);
+        input[4] = parseInt(document.getElementById("int5").value);
+
+        for (i = 0; i < input.length; i++) {
+            switch (i) {
+                case 0:
+                arr[i] = "국어 : " + input[i] + "점 ";
+                all[i] = input[i];
+                    break;
+                case 1:
+                arr[i] = "수학 : " + input[i]+ "점 ";
+                all[i] = input[i];
+                    break;
+                case 2:
+                arr[i] = "사회 : " + input[i]+ "점 ";
+                all[i] = input[i];
+                    break;
+                case 3:
+                arr[i] = "과학 : " + input[i]+ "점 ";
+                all[i] = input[i];
+                    break;
+                case 4:
+                arr[i] = "영어 : " + input[i]+ "점 ";
+                all[i] = input[i];
+                    break;
+            }
+        }
+        // input1.value = "";
+        // input 함수를 실행하면 input1.value의 값이 사라지게 만드는 작업
+        // input1.focus();
+        //input 함수를 실행하면 커서가 input1칸으로 가게 만듦.
+        // 숫자가 사라지면 커서가 input1칸으로 가게 만듦.
+        // idx++;
+    }
+    function output() {
+        // for (var i = 0; i < arr.length; i++) {
+        //     console.log(arr[i]);
+        //     console.log("arr[" + i + "]" + " = " + arr[i]);
+        // }
+        // for (var i in arr) { // 배열의 크기만큼 반복문 실행
+        //     console.log("arr[" + i + "]" + " = " + arr[i]);
+        // }
+        // console.log("입력한 횟수 : " + arr.length);
+        document.getElementById("st1").innerHTML = arr;
+    }
+    function sum() {
+        var sum1 = 0;
+        for(i=0;i<all.length;i++){
+            sum1 += all[i];
+        }
+        console.log(sum1);
+        sum1=sum1/5;
+        document.getElementById("total").innerHTML = sum1;
+    }
+</script>
+
+</html>

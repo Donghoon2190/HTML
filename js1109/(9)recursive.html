@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>재귀호출</title>
+</head>
+
+<body>
+    <h2>재귀호출 : 함수안에서 자신을 다시 호출하는 것</h2>
+    <!-- 4 x 3 x 2 x 1 = 4! -->
+    <!-- factorial -->
+    <fieldset>
+        <legend>factorial</legend>
+        <input type="text" id="fact">
+        <input type="button" value="factorial!" onclick="factmethod()">
+        <h2>입력한 값 : <span id="result1"></span></h2>
+        <h2>결과 값 : <span id="result2"></span></h2>
+        <img  id="img2" width="300px" height="70px" style="border: none;">
+    </fieldset>
+</body>
+
+<script>
+    var result = 1;
+
+    function factorial(num) {
+
+        if (num == 0) {
+            return result;
+        } else {
+            result = result * num;
+            num--;
+        }
+        return factorial(num);
+        // 파라미터의 값을 1씩 빼주고
+        // 계속 자신의 메서드를 리턴하기때문에 
+        // 반복문과 비슷한 느낌이됨.
+    }
+
+    //body 부분에서 가져온 데이터는 무조건 object 타입임.
+    //그래서 숫자로 쓰려면 무조건 parseInt를 해줘야함.
+
+    function factmethod() {
+        num1 = parseInt(document.getElementById("fact").value);
+
+        document.getElementById("result1").innerHTML = num1;
+        document.getElementById("result2").innerHTML = factorial(num1);
+        result = 1;
+
+        img1();
+    }
+    function img1() {
+        document.getElementById("img2").src="w353w5.jfif";
+    }
+
+</script>
+
+</html>
+<!-- var result = 1;
+function factorial(num) {
+    var num = document.getElementById("fact").value;
+    document.getElementById("result1").innerHTML = num;
+    while (true) {
+        if (num == 0) {
+            document.getElementById("result2").innerHTML = result;
+            result = 1;
+            break;
+        } else {
+            result = result * num;
+            num--;
+        }
+    }
+
+} -->
